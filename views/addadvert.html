@@ -1,0 +1,62 @@
+<nav style="background-color: navy" class="navbar navbar-expand-lg navbar-light lg-light">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a style="color: white" class="nav-link" type="button" onclick="navigate('add')">Publier une annonce</a>
+        </li>
+    </ul>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="nav-item">
+            <a style="font-family: 'Arial Black'; font-size: larger; color: white" type="button" class="nav-link" onclick="navigate('index')">LeBonAngle</a>
+        </li>
+    </ul>
+</nav>
+<h2 style="text-align: center">Publication d'une annonce</h2>
+<div style="padding: 5%" class="container">
+    <form action="#">
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="Titre" type="text" class="validate">
+                <label for="Titre">Titre</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="Auteur" type="text" class="validate">
+                <label for="Auteur">Auteur</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="Email" type="email" class="validate">
+                <label for="Email">Email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6" id="Category">
+                <select id="SelectCategory">
+
+                </select>
+                <label for="SelectCategory">Catégorie</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="Prix" type="number" class="validate">
+                <label for="Prix">Prix</label>
+            </div>
+        </div>
+        <div class="row">
+            <label for="Description" class="active">Description</label>
+            <textarea class="materialize textarea" id="Description"></textarea>
+        </div>
+        <div class="file-field input-field" >
+            <div class="btn">
+                <span>File</span>
+                <input id="Images" type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+                <label>
+                    <input class="file-path validate" type="text">
+                </label>
+            </div>
+        </div>
+        <a style="margin-left: 85%" class="btn #00e676 green accent-3" type="button" onclick="window.addAdvert.addAdvert()">Soumettre l'annonce</a>
+
+    </form>
+</div>
