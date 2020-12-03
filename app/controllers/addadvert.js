@@ -1,7 +1,7 @@
 class AddAdvert extends BaseController{
     constructor() {
         super();
-        this.selectcategory = $('#SelectCategory')
+        this.selectcategory = document.getElementById('SelectCategory')
         this.displayCategories()
     }
     async addAdvert() {
@@ -59,12 +59,13 @@ class AddAdvert extends BaseController{
             this.toast('La description ne doit pas dépasser 1200 caractères')
             return
         }
-        let advert = new Advert(title,content,author,email,category,price,tabpictures)
+        let advert = new Advert(title,content,author,email,category,price, null, null, null, tabpictures)
         console.log(advert)
         try{
             if (await this.modelAdvert.insert(advert) === 201)
             {
                 this.toast("Annonce Validée")
+                navigate('index')
             }
         }
         catch (err)
@@ -79,7 +80,6 @@ class AddAdvert extends BaseController{
             for(const category of await this.modelCategory.getAllCategories()) {
                 content += `<option value="${category.id}">${category.name}</option>`
             }
-            console.log(content)
             this.selectcategory.innerHTML = content
             M.FormSelect.init(this.selectcategory)
         }

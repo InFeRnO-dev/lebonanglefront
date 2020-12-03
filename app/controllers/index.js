@@ -2,7 +2,7 @@ class IndexController extends BaseController {
 
     constructor() {
         super();
-        this.cardsindex = $('#cardsindex')
+        this.cardsindex = document.getElementById('cardsindex')
         this.displayAllAdverts()
     }
     displayAdvert(idAdvert) {
@@ -16,11 +16,11 @@ class IndexController extends BaseController {
             for (const advert of adverts) {
                 const createdAtFormat = advert.createdAt.toLocaleDateString()
                 const publishedAtFormat = advert.publishedAt.toLocaleDateString()
-                content += `<div class="row">
-                                <div class="col s12 m2">
+                content += `
+                                <div class="col s3 m3">
                                     <div class="card">
                                         <div class="card-image">
-                                            <img src="http://lebonangle.test/picture/${advert.pictures[0].path}">
+                                            <img id="imgAdvert" src="http://lebonangle.test/picture/${advert.pictures[0].path}">
                                             <span class="card-title">${advert.title}</span>
                                         </div>
                                     <div class="card-content">
@@ -33,7 +33,7 @@ class IndexController extends BaseController {
                                     </div>
                                     </div>
                                 </div>
-                            </div>`
+                            `
             }
             this.cardsindex.innerHTML = content
         } catch (err) {

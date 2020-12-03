@@ -13,8 +13,7 @@ class ModelAdvert {
             advert.publishedAt = new Date(advert.publishedAt)
             advert.category = Object.assign(new Category(), await this.apicategory.getCategoryByAdvert(advert.category))
             let tab = []
-            for(let picture of advert.pictures)
-            {
+            for (let picture of advert.pictures) {
                 tab.push(Object.assign(new Picture(), await this.apipicture.getPictureByAdvert(picture)))
             }
             advert.pictures = tab
@@ -22,6 +21,7 @@ class ModelAdvert {
         }
         return adverts
     }
+
     async getAdvertById(idAdvert) {
         let advert = Object.assign(new Advert(), await this.apiadvert.getAdvertById(idAdvert))
         advert.createdAt = new Date(advert.createdAt)
