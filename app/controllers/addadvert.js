@@ -62,17 +62,16 @@ class AddAdvert extends BaseController{
         let advert = new Advert(title,content,author,email,category,price, null, null, null, tabpictures)
         console.log(advert)
         try{
-            if (await this.modelAdvert.insert(advert) === 201)
-            {
-                this.toast("Annonce Validée")
-                navigate('index')
-            }
+            await this.modelAdvert.insert(advert)
+            this.toast("Annonce Validée")
         }
         catch (err)
         {
             console.log(err)
             this.displayServiceError()
         }
+
+        navigate('index')
     }
     async displayCategories() {
         try {

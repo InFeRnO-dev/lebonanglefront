@@ -6,9 +6,9 @@ class ModelAdvert {
         this.apipicture = new Pictureapi()
     }
 
-    async getAllAdverts() {
+    async getAllAdverts(category) {
         let adverts = []
-        for (let advert of await this.apiadvert.getAllAdverts()) {
+        for (let advert of await this.apiadvert.getAllAdverts(category)) {
             advert.createdAt = new Date(advert.createdAt)
             advert.publishedAt = new Date(advert.publishedAt)
             advert.category = Object.assign(new Category(), await this.apicategory.getCategoryByAdvert(advert.category))
